@@ -8,7 +8,7 @@ function App() {
   const [ModalIsOpen, setIsOpen] = useState(false)
   const [inputName, setInputName] = useState('')
   const [inputDate, setInputDate] = useState('')
-  const [card, setCard] = useState([{nome:'',data:''}])
+  const [card, setCard] = useState([]) //criando um array vazio que será preenchido com cada objeto
 
   function openModalTask(){
     setIsOpen(true)
@@ -24,8 +24,12 @@ function App() {
     setInputDate(e.target.value)
   }
   function captureValue(){
+    //se os inputs não estiverem vazios deve-se setar a variavel de card com o nome e a data; impede que seja criado um objeto com campo vazios
     if(inputDate != '' || inputName != ''){
       setCard([...card,{nome:inputName, data:inputDate}])
+      //resetando o nome e data da tarefa para que não seja criado uma tarefa com as informações gravadas nas variaveis toda vez que clicar no botão
+      setInputName('') 
+      setInputDate('') 
     }else{
       console.log('preencha os botões')
     }
