@@ -6,7 +6,6 @@ Modal.setAppElement('#root');
 
 
 export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn}) =>{
-
     return(
         <>
             <Modal
@@ -22,28 +21,28 @@ export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn
                 className='text-red-600'
                 /></button>
                 </span>
-            <label className='text-2xl mt-2'>Nome da Tarefa:</label>
-            <input  
-            className='h-12 p-4 mt-2 text-2xl rounded-lg' 
-            placeholder='escreva sua tarefa'
-            onChange={handleInputName}
-            required
-            >
-            </input>
+                <label className='text-2xl mt-2'>Nome da Tarefa:</label>
+                <input  
+                className='h-12 p-4 mt-2 text-2xl rounded-lg' 
+                placeholder='escreva sua tarefa'
+                onChange={handleInputName}
+                required
+                >
+                </input>
 
-            <label className='text-2xl mt-2'>Data da Tarefa:</label>
-            <input  
-            className='h-12 p-4 mt-2 text-2xl rounded-lg' 
-            placeholder='18/11/2024'
-            onChange={handleInputDate}
-            required
-            >
-            </input>
+                <label className='text-2xl mt-2'>Data da Tarefa:</label>
+                <input  
+                className='h-12 p-4 mt-2 text-2xl rounded-lg' 
+                placeholder='18/11/2024'
+                onChange={handleInputDate}
+                required
+                >
+                </input>
 
-            <Button
-            nameButton={'Adicionar'}
-            valueButton={vlBtn}
-            />
+                <Button
+                nameButton={'Adicionar'}
+                valueButton={vlBtn}
+                />
             </div>
             </Modal>
         </>
