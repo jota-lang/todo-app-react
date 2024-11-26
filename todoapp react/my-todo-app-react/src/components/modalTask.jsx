@@ -5,7 +5,7 @@ import { Button } from './button';
 Modal.setAppElement('#root');
 
 
-export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn}) =>{
+export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn, vlInputName, vlInputDate}) =>{
     return(
         <>
             <Modal
@@ -23,7 +23,8 @@ export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn
                 </span>
                 <label className='text-2xl mt-2'>Nome da Tarefa:</label>
                 <input  
-                className='h-12 p-4 mt-2 text-2xl rounded-lg' 
+                className='h-12 p-4 mt-2 text-2xl rounded-lg'
+                value={vlInputName} 
                 placeholder='escreva sua tarefa'
                 onChange={handleInputName}
                 required
@@ -32,7 +33,8 @@ export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn
 
                 <label className='text-2xl mt-2'>Data da Tarefa:</label>
                 <input  
-                className='h-12 p-4 mt-2 text-2xl rounded-lg' 
+                className='h-12 p-4 mt-2 text-2xl rounded-lg'
+                value={vlInputDate} 
                 placeholder='18/11/2024'
                 onChange={handleInputDate}
                 required
@@ -40,7 +42,7 @@ export const ModalTask = ({isOpen, isClose,handleInputName,handleInputDate,vlBtn
                 </input>
 
                 <Button
-                nameButton={'Adicionar'}
+                nameButton={'Salvar'}
                 valueButton={vlBtn}
                 />
             </div>

@@ -1,7 +1,7 @@
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
-export const Card  = ({taskName, dateTime, deleteBtn}) =>{
+export const Card  = ({taskName, dateTime, deleteBtn, editBtn}) =>{
 
    
 
@@ -21,8 +21,9 @@ export const Card  = ({taskName, dateTime, deleteBtn}) =>{
                 <DeleteOutlineOutlinedIcon fontSize='large'/>
                 </button>
                 <button
+                onClick={editBtn}
                 >
-                    <EditOutlinedIcon fontSize='large'/>
+                <EditOutlinedIcon fontSize='large'/>
                 </button>
             </div>   
         </div>

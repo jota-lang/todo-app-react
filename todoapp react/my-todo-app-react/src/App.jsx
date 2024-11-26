@@ -9,6 +9,7 @@ function App() {
   const [inputName, setInputName] = useState('')
   const [inputDate, setInputDate] = useState('')
   const [card, setCard] = useState([]) //criando um array vazio que será preenchido com cada objeto
+  const [index, setIndex] = useState(null)
 
   function openModalTask(){
     setIsOpen(true)
@@ -34,7 +35,7 @@ function App() {
       setInputName('') 
       setInputDate('') 
     }else{
-      console.log('preencha os botões')
+      alert('preencha os campos!')
     }
   }
   
@@ -45,6 +46,21 @@ function App() {
     newList.splice(index,1)
     //atualiza o estado de card com a nova lista que esta sem o objeto que foi removido
     setCard([...newList])
+  }
+
+  function editTask(index){
+    setInputName(card[index].nome)
+    setInputDate(card[index].data)
+    setIndex(index)
+    openModalTask()
+    
+  }
+  
+  function editingTaks() {
+    const updateCard = [...card]
+    updateCard[index] = {nome:inputName, data:inputDate}
+    setCard(updateCard)
+    setIndex(null)
   }
   
   return (
@@ -59,7 +75,7 @@ function App() {
       </div>
       <div className='flex gap-y-4 flex-col justify-center items-center p-6 w-1/2 h-min  bg-gray-300 rounded-md text-white'>
         {card.map((valores,index)=>{
-          return <Card taskName={valores.nome} dateTime={valores.data} deleteBtn={deleteTask} key={index} index={index}/>
+          return <Card taskName={valores.nome} dateTime={valores.data} deleteBtn={()=>deleteTask(index)} editBtn={()=>editTask(index)} key={index}/>
         })}
       </div>
       </div>
@@ -67,9 +83,12 @@ function App() {
       isOpen={ModalIsOpen}
       isClose={closeModalTask}
       handleInputName={handleInputName}
+      vlInputName={inputName}
+      vlInputDate={inputDate}
       handleInputDate={handleInputDate}
-      vlBtn={captureValue}
+      vlBtn={index !== null?editingTaks:captureValue}
       />
+      
 
     </>
   )
